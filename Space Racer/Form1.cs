@@ -117,8 +117,16 @@ namespace Space_Racer
                 balls[i] = new Rectangle(x, balls[i].Y, ballSize, ballSize);
             }
 
-
-            Refresh();
+            for (int i = 0; i < balls.Count; i++)
+            {
+                ///didnt have time to finish the code for collisions
+                ///DNF
+                if (player1.IntersectsWith(balls[i]))
+                {
+                    
+                }
+            }
+                    Refresh();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
