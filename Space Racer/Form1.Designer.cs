@@ -29,62 +29,58 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.playerOne = new System.Windows.Forms.PictureBox();
-            this.moveTimer = new System.Windows.Forms.Timer(this.components);
-            this.playerTwo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.playerOne)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerTwo)).BeginInit();
+            this.p1Score = new System.Windows.Forms.Label();
+            this.p2Score = new System.Windows.Forms.Label();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // playerOne
+            // p1Score
             // 
-            this.playerOne.Image = ((System.Drawing.Image)(resources.GetObject("playerOne.Image")));
-            this.playerOne.Location = new System.Drawing.Point(141, 311);
-            this.playerOne.Name = "playerOne";
-            this.playerOne.Size = new System.Drawing.Size(50, 50);
-            this.playerOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.playerOne.TabIndex = 0;
-            this.playerOne.TabStop = false;
+            this.p1Score.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p1Score.Location = new System.Drawing.Point(63, 311);
+            this.p1Score.Name = "p1Score";
+            this.p1Score.Size = new System.Drawing.Size(51, 50);
+            this.p1Score.TabIndex = 2;
+            this.p1Score.Text = "0";
+            this.p1Score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // moveTimer
+            // p2Score
             // 
-            this.moveTimer.Enabled = true;
-            this.moveTimer.Interval = 20;
-            this.moveTimer.Tick += new System.EventHandler(this.moveTimerEvent);
+            this.p2Score.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p2Score.Location = new System.Drawing.Point(366, 311);
+            this.p2Score.Name = "p2Score";
+            this.p2Score.Size = new System.Drawing.Size(44, 50);
+            this.p2Score.TabIndex = 3;
+            this.p2Score.Text = "0";
+            this.p2Score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // playerTwo
+            // gameTimer
             // 
-            this.playerTwo.Image = ((System.Drawing.Image)(resources.GetObject("playerTwo.Image")));
-            this.playerTwo.Location = new System.Drawing.Point(289, 311);
-            this.playerTwo.Name = "playerTwo";
-            this.playerTwo.Size = new System.Drawing.Size(50, 50);
-            this.playerTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.playerTwo.TabIndex = 1;
-            this.playerTwo.TabStop = false;
+            this.gameTimer.Enabled = true;
+            this.gameTimer.Interval = 20;
+            this.gameTimer.Tick += new System.EventHandler(this.gameTimerEvent);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 373);
-            this.Controls.Add(this.playerTwo);
-            this.Controls.Add(this.playerOne);
+            this.Controls.Add(this.p2Score);
+            this.Controls.Add(this.p1Score);
+            this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Space Race";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyIsUp);
-            ((System.ComponentModel.ISupportInitialize)(this.playerOne)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerTwo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox playerOne;
-        private System.Windows.Forms.Timer moveTimer;
-        private System.Windows.Forms.PictureBox playerTwo;
+        private System.Windows.Forms.Label p1Score;
+        private System.Windows.Forms.Label p2Score;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }
 
